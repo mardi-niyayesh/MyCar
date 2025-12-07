@@ -1,7 +1,9 @@
 import HeaderSite from "./components/Header/HeaderSite";
+import MainSite from "./components/Header/Main/MainSite";
 function App() {
   return <>
  <HeaderSite/>
+ <MainSite/>
   </>;
 }
 
