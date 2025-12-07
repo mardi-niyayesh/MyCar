@@ -1,12 +1,7 @@
-import HedearBar from "./components/Header/HedearBar";
-import BanerHeader from "./components/BanerHeader";
-import HeroBaner from "./components/Header/HeroBaner";
-
+import HeaderSite from "./components/Header/HeaderSite";
 function App() {
   return <>
-  <HedearBar/>
-  <BanerHeader/>
-  <HeroBaner/>
+ <HeaderSite/>
   </>;
 }
 
