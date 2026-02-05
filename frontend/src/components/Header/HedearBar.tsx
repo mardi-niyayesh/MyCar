@@ -67,14 +67,12 @@ const HeaderBar = () => {
           </button>
 
           <div className="flex lg:hidden items-center gap-4">
-            {/* آیکون جستجو */}
             <img 
               src={Search} 
               alt="logoSearch" 
               className="w-6 h-6 cursor-pointer"
             />
             
-            {/* دکمه همبرگر */}
             <button 
               onClick={toggleMenu}
               className="flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors"
@@ -102,7 +100,7 @@ const HeaderBar = () => {
                 className="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/70 transition-colors"
                 aria-label="بستن منو"
               >
-                <span className="text-2xl text-[#194BF0]">×</span>
+                <span className="text-4xl text-[#194BF0] text-center">×</span>
               </button>
             </div>
             
@@ -159,11 +157,6 @@ const HeaderBar = () => {
               
               <div className="mt-12 pt-6 border-t border-white/30">
                 <div className="flex items-center justify-center gap-2">
-                  <img 
-                    src={logoCircle} 
-                    alt="logo" 
-                    className="w-10 h-10"
-                  />
                   <div className="flex">
                     <span className="text-[20px] font-bold text-[#194BF0]">اُتــو</span>
                     <span className="text-[20px] font-bold text-[#FDB713]">رِنت</span>
