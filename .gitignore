@@ -1,0 +1,83 @@
+# ========== Backend (NestJS) ==========
+# server/.gitignore
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+.nyc_output
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ========== Frontend (React/Vue/etc) ==========
+# frontend/.gitignore
+
+# Build
+**/dist/
+**/.next/
+**/out/
+**/build/
+
+# Cache
+.cache/
+.next/
+
+# Test
+**/.jest/
+**/cypress/
+
+# Package managers
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# ========== General ==========
+# Temp files
+.tmp/
+.temp/
+
+# System
+*~
+*.backup
+*.bak
+
+# Docker
+docker-compose.override.yml
+
+# Local overrides
+*.local
+*.local.*
+
+# Custom (add your own below)
