@@ -79,5 +79,3 @@ docker-compose.override.yml
 # Local overrides
 *.local
 *.local.*
-
-# Custom (add your own below)
