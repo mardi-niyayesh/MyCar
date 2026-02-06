@@ -1,95 +1,88 @@
-//logo or img
-import onenumber from "../../../assets/1 (2).png";
-import twonumber from "../../../assets/3.png";
 import reservCar from "../../../assets/reservCar.png";
-import threenumber from '../../../assets/2.png'
-import fornumber from '../../../assets/4.png'
+import ComponentReservAutorent from "./componentReservAutorent";
+
+const feacherData = [
+  {
+    logo: "../../../assets/1 (2).png",
+    firstname: "خودروی",
+    secondname: "خود را انتخاب کنید.",
+    descripton: "خودروی مورد نظر خود را، متناسب با درخواست خود انتخاب کنید.",
+    position: "right",
+  },
+  {
+    logo: " ../../../assets/2.png",
+    firstname: "تاریخ",
+    secondname: "تحویل را تعیین کنید.",
+    descripton: "تاریخ موردنظر خود را از تقویم، انتخاب و رزرو کنید",
+    position: "left",
+  },
+
+  {
+    logo: "../../../assets/4.png",
+    firstname: "هزینه",
+    secondname: "اجاره را پرداخت کنید.",
+    descripton:
+      "می توانید از طریق کیف پول آنلاین یا کارت های عضو شبکه شتاب هزینه اجاره را پرداخت کنید.",
+    position: "left",
+  },
+  {
+    logo: "../../../assets/3.png",
+    firstname: "خودروی",
+    secondname: "خود را انتخاب کنید.",
+    descripton: "خودروی مورد نظر خود را، متناسب با درخواست خود انتخاب کنید.",
+    position: "right",
+  },
+];
+
 const ReserveAutorent = () => {
+  const RightItems = feacherData.filter((item) => item.position === "right");
+  const LeftItems = feacherData.filter((item) => item.position === "left");
   return (
-    <div className="mt-8 container w-max-[1200px] mx-auto">
-      <div className="mt-8">
-        <p className="text-[#5E5E5E] text-[24px] font-medium text-center">
+    <div className="mt-8 px-4 md:px-8 lg:px-12 xl:px-0 max-w-[1200px] mx-auto">
+      <div className="mt-8 text-center">
+        <p className="text-[#5E5E5E] text-lg md:text-xl lg:text-[24px] font-medium">
           چگونه در وبسایت
         </p>
-        <div className="font-bold text-3xl text-center">
+        <div className="font-bold text-2xl md:text-3xl lg:text-4xl">
           <span className="text-[#D79C10]">اُتـــورِنت</span>
           <span> خودرو رزرو کنیم؟</span>
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-10">
-        <div>
-          <div className="mb-[350px]">
-            <div className="flex items-center ">
-              <img src={onenumber} alt="one number" />
-            </div>
-
-            <div className="font-bold text-3xl mb-2">
-              <span className="text-[#D79C10]">خودروی </span>
-              <span className="text-[#5E5E5E] text-[24px] font-medium">
-                خود را انتخاب کنید
-              </span>
-            </div>
-            <p className="text-[#5E5E5E] w-[250px] text-[16px]">
-              خودروی مورد نظر خود را، متناسب با درخواست خود انتخاب کنید.
-            </p>
-          </div>
-
-          <div className="">
-            <div className="flex items-center ">
-              <img src={twonumber} alt="two number" />
-            </div>
-
-            <div className="font-bold text-3xl mb-2">
-              <span className="text-[#D79C10]">هزینه </span>
-              <span className="text-[#5E5E5E] text-[24px] font-medium">
-                اجاره را پرداخت کنید.
-              </span>
-            </div>
-            <p className="text-[#5E5E5E] w-[250px] text-[16px]">
-              می توانید از طریق کیف پول آنلاین یا کارت های عضو شبکه شتاب هزینه
-              اجاره را پرداخت کنید.
-            </p>
-          </div>
+      <div className="mt-10 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-4">
+        <div className="flex flex-col gap-16 lg:gap-[350px] w-full lg:w-auto">
+          {RightItems.map((feacher) => {
+            return (
+              <ComponentReservAutorent
+                logo={feacher.logo}
+                firstname={feacher.firstname}
+                secondname={feacher.secondname}
+                descripton={feacher.descripton}
+              />
+            );
+          })}
         </div>
 
-        <img src={reservCar} alt="reserve car" />
-
-        <div>
-          <div className="mb-[350px]">
-            <div className="flex items-center ">
-              <img src={threenumber} alt="three number" />
-            </div>
-
-            <div className="font-bold text-3xl mb-2">
-              <span className="text-[#D79C10]">تاریخ </span>
-              <span className="text-[#5E5E5E] text-[24px] font-medium">
-              تحویل را تعیین کنید.
-              </span>
-            </div>
-            <p className="text-[#5E5E5E] w-[250px] text-[16px]">
-             تاریخ موردنظر خود را از تقویم، انتخاب و رزرو کنید
-            </p>
-          </div>
-
-          <div className="">
-            <div className="flex items-center ">
-              <img src={fornumber} alt="for number" />
-            </div>
-
-            <div className="font-bold text-3xl mb-2">
-              <span className="text-[#D79C10]">خودرو </span>
-              <span className="text-[#5E5E5E] text-[24px] font-medium">
-              را دریافت کنید.
-              </span>
-            </div>
-            <p className="text-[#5E5E5E] w-[250px] text-[16px]">
-            در زمان و مکان تعیین شده، خودروی خود را دریافت کنید.
-            </p>
-          </div>
-          
+        <div className="order-first lg:order-none">
+          <img
+            src={reservCar}
+            alt="reserve car"
+            className="w-full max-w-[300px] md:max-w-[400px] lg:max-w-[500px] mx-auto lg:mx-0"
+          />
         </div>
 
+        <div className="flex flex-col gap-16 lg:gap-[350px] w-full lg:w-auto">
+          {LeftItems.map((feacher) => {
+            return (
+              <ComponentReservAutorent
+                logo={feacher.logo}
+                firstname={feacher.firstname}
+                secondname={feacher.secondname}
+                descripton={feacher.descripton}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
