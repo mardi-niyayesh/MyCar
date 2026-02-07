@@ -1,5 +1,6 @@
 import {AppModule} from './app.module';
 import {NestFactory} from '@nestjs/core';
+import {TransformInterceptors} from "./lib";
 import {ValidationPipe} from "@nestjs/common";
 
 /** run application */
@@ -8,6 +9,7 @@ async function bootstrap(): Promise<void> {
 
   /** global configs */
   app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalInterceptors(new TransformInterceptors());
 
   await app.listen(process.env.PORT ?? 3000);
 }
