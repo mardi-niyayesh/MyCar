@@ -10,12 +10,12 @@ export class ApiResponse<T> {
   path?: string;
 }
 
-export function getBaseOkResponseSchema<T>(create: boolean, message: string, data: T, path: string) {
+export function getBaseOkResponseSchema<T>(props: { create: boolean, message: string, data: T, path: string }) {
   class BaseOkResponse {
     @ApiProperty({example: true})
     success: boolean;
 
-    @ApiProperty({example: create ? 201 : 200})
+    @ApiProperty({example: props.create ? 201 : 200})
     statusCode: number;
 
     @ApiProperty({example: "Resource Created"})
@@ -23,8 +23,8 @@ export function getBaseOkResponseSchema<T>(create: boolean, message: string, dat
 
     @ApiProperty({
       example: {
-        message,
-        ...data
+        message: props.message,
+        ...props.data
       }
     })
     response: {
@@ -35,7 +35,7 @@ export function getBaseOkResponseSchema<T>(create: boolean, message: string, dat
     @ApiProperty({example: "2026-02-08T02:11:20.630Z"})
     timestamp: string;
 
-    @ApiProperty({example: path})
+    @ApiProperty({example: props.path})
     path: string;
   }
 
