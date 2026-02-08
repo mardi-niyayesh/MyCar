@@ -1,9 +1,13 @@
 import z from "zod";
-import {BaseUserSchema} from "./index";
 import {createZodDto} from "nestjs-zod";
+import {BaseUserSchema} from "./users.validators";
 
+export const CreateUser = BaseUserSchema.overwrite(data => ({
+  ...data,
+  display_name: data.display_name?.trim()
+}));
 /** Create User Type */
 export type CreateUserInput = z.infer<typeof BaseUserSchema>;
 
 /** Create User DTO for Swagger */
-export class CreateUserDto extends createZodDto(BaseUserSchema) {}
+export class CreateUserSchema extends createZodDto(BaseUserSchema) {}

@@ -1,5 +1,5 @@
-import {ApiBody} from "@nestjs/swagger";
 import {ZodPipe} from "../../common";
+import {ApiBody} from "@nestjs/swagger";
 import * as UserValidator from "./validators/";
 import {Body, Controller, HttpCode, Post} from '@nestjs/common';
 
@@ -9,13 +9,13 @@ export class UsersController {
 
   @Post()
   @HttpCode(201)
-  @ApiBody({type: UserValidator.CreateUserDto})
+  @ApiBody({type: UserValidator.CreateUserSchema})
   create(
-    @Body(new ZodPipe(UserValidator.BaseUserSchema)) data: UserValidator.CreateUserInput
+    @Body(new ZodPipe(UserValidator.CreateUser)) data: UserValidator.CreateUserInput
   ) {
     console.log(data);
     return {
-      user: "Damn ChatGPT",
+      user: "create users successfully.",
     };
   }
 }
