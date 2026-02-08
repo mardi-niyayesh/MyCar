@@ -6,6 +6,7 @@ import {BaseUserSchema} from "./users.validators";
 import {User} from "../../prisma/generated/client";
 import {getBaseOkResponseSchema, getBaseErrorBodyResponseSchema} from "../../../common";
 
+/** create user schema */
 export const CreateUser = BaseUserSchema.overwrite(data => ({
   ...data,
   display_name: data.display_name?.trim()
@@ -17,10 +18,12 @@ export type CreateUserInput = z.infer<typeof BaseUserSchema>;
 /** Create User DTO for Swagger */
 export class CreateUserSchema extends createZodDto(BaseUserSchema) {}
 
+/** response user type */
 export type CreateUserResponse = Omit<User, "password"> & {
   password: undefined;
 };
 
+/** object for ok response */
 export const createUserResponse = {
   path: "users",
   message: "user created successfully",
@@ -39,6 +42,7 @@ export const createUserResponse = {
   }
 };
 
+/** ok example for create user */
 export class CreateUserOkResponse extends getBaseOkResponseSchema<{
   user: CreateUserResponse
 }>({
@@ -50,6 +54,7 @@ export class CreateUserOkResponse extends getBaseOkResponseSchema<{
   }
 }) {}
 
+/** conflict example for create user */
 export class CreateUserConflictResponse {
   @ApiProperty({example: "User already exists"})
   message: string;
@@ -58,6 +63,7 @@ export class CreateUserConflictResponse {
   status: number;
 }
 
+/** bad request example for create user */
 export class CreateUserBadRequestResponse extends getBaseErrorBodyResponseSchema([
   {
     fields: "email",
