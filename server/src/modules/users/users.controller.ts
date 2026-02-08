@@ -1,7 +1,7 @@
-import {ZodPipe} from "../../common";
 import {ApiBody} from "@nestjs/swagger";
+import {ZodPipe} from "../../common";
+import * as UserValidator from "./validators/";
 import {Body, Controller, HttpCode, Post} from '@nestjs/common';
-import * as UserValidator from "./validators/users.validators";
 
 @Controller('users')
 export class UsersController {
