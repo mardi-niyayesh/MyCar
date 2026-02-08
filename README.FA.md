@@ -190,5 +190,31 @@ http://localhost:3000/api
 
 ---
 
+## **سازندگان** 
+
+### 👨‍💻 سازندگان پروژه  
+یک همکاری تمیز، مدرن و فول‌استک.
+
+<br>
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/homow.png" width="90" style="border-radius: 50%;" /><br>
+      <b>homow</b><br>
+      <sub>توسعه‌دهنده بک‌اند · سمت سرور</sub><br>
+      <a href="https://github.com/homow">github.com/homow</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/mardi-niyayesh.png" width="90" style="border-radius: 50%;" /><br>
+      <b>mardi‑niyayesh</b><br>
+      <sub>توسعه‌دهنده فرانت‌اند · سمت کلاینت</sub><br>
+      <a href="https://github.com/mardi-niyayesh">github.com/mardi-niyayesh</a>
+    </td>
+  </tr>
+</table>
+
+---
+
 [🇬🇧 نسخه انگلیسی](./README.md)
 [🇬🇧 Read in English](./README.md)

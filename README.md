@@ -191,5 +191,31 @@ http://localhost:3000/api
 
 ---
 
+## **Contributors**
+
+### 👨‍💻 Project Contributors  
+A clean and modern full‑stack collaboration.
+
+<br>
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/homow.png" width="90" style="border-radius: 50%;" /><br>
+      <b>homow</b><br>
+      <sub>Backend Developer · Server‑Side</sub><br>
+      <a href="https://github.com/homow">github.com/homow</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/mardi-niyayesh.png" width="90" style="border-radius: 50%;" /><br>
+      <b>mardi‑niyayesh</b><br>
+      <sub>Frontend Developer · Client‑Side</sub><br>
+      <a href="https://github.com/mardi-niyayesh">github.com/mardi-niyayesh</a>
+    </td>
+  </tr>
+</table>
+
+---
+
 [🇮🇷  نسخه فارسی](./README.FA.md)
 [🇮🇷 Read in Persian](./README.FA.md)
