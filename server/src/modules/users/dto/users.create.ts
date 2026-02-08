@@ -29,10 +29,10 @@ export class CreateUserOkResponse extends getBaseOkResponseSchema<{ user: Create
   data: {
     user: {
       id: "d228cc19-b8c9-41c4-8c70-c2c6effb05ca",
-      email: "user@example.com",
+      email: "john@example.com",
       role: "USER",
-      display_name: "string",
-      age: 120,
+      display_name: "John",
+      age: 24,
       password: undefined,
       createdAt: date,
       updatedAt: date
