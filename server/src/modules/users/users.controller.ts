@@ -1,5 +1,5 @@
 import {ZodPipe} from "../../common";
-import {Body, Controller, HttpCode, Post} from '@nestjs/common';
+import {Body, Controller, Get, HttpCode, Post} from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
@@ -8,8 +8,6 @@ export class UsersController {
   @Post()
   @HttpCode(201)
   create() {
-    return {
-      users: "users",
-    };
+
   }
 }
