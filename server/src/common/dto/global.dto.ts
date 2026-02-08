@@ -24,7 +24,7 @@ export function getBaseOkResponseSchema<T>(props: { create: boolean, message: st
     @ApiProperty({
       example: {
         message: props.message,
-        ...props.data
+        data: props.data,
       }
     })
     response: {

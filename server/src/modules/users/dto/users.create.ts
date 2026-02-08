@@ -1,6 +1,7 @@
 import z from "zod";
 import {createZodDto} from "nestjs-zod";
 import {BaseUserSchema} from "./users.validators";
+import {User} from "../../prisma/generated/client";
 import {getBaseOkResponseSchema} from "../../../common";
 
 export const CreateUser = BaseUserSchema.overwrite(data => ({
@@ -14,19 +15,27 @@ export type CreateUserInput = z.infer<typeof BaseUserSchema>;
 /** Create User DTO for Swagger */
 export class CreateUserSchema extends createZodDto(BaseUserSchema) {}
 
-export class CreateUserOkResponse extends getBaseOkResponseSchema<>({
+export type CreateUserResponse = Omit<User, "password"> & {
+  password: undefined;
+};
+
+/** date for responses */
+const date = new Date();
+
+export class CreateUserOkResponse extends getBaseOkResponseSchema<{ user: CreateUserResponse }>({
   path: "users",
   message: "user created successfully",
   create: true,
   data: {
-    id: "d228cc19-b8c9-41c4-8c70-c2c6effb05ca",
-    email: "user@example.com",
-    role: "USER",
-    display_name: "string",
-    age: 120,
-    createdAt: "2026-02-08T02:11:20.596Z",
-    updatedAt: "2026-02-08T02:11:20.596Z"
+    user: {
+      id: "d228cc19-b8c9-41c4-8c70-c2c6effb05ca",
+      email: "user@example.com",
+      role: "USER",
+      display_name: "string",
+      age: 120,
+      password: undefined,
+      createdAt: date,
+      updatedAt: date
+    }
   }
-}) {
-
-}
+}) {}

@@ -1,7 +1,7 @@
 import * as UserDTO from "./dto";
 import {ZodPipe} from "../../common";
-import {ApiBody} from "@nestjs/swagger";
 import {UsersService} from "./users.service";
+import {ApiBody, ApiCreatedResponse} from "@nestjs/swagger";
 import {Body, Controller, HttpCode, Post} from '@nestjs/common';
 
 @Controller('users')
@@ -11,6 +11,9 @@ export class UsersController {
   @Post()
   @HttpCode(201)
   @ApiBody({type: UserDTO.CreateUserSchema})
+  @ApiCreatedResponse({
+    type: UserDTO.CreateUserOkResponse
+  })
   create(
     @Body(new ZodPipe(UserDTO.CreateUser)) data: UserDTO.CreateUserInput
   ) {
