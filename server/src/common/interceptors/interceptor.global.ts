@@ -13,12 +13,12 @@ export class TransformInterceptors<T> implements NestInterceptor<BaseApiResponse
 
     return next.handle().pipe(
       map(response => {
-        const statusCode: number = res.statusCode;
+        const status: number = res.statusCode;
 
         return {
-          success: statusCode >= 200 && statusCode <= 300,
-          statusCode,
-          detail: this.getDefaultMessage(statusCode),
+          success: status >= 200 && status <= 300,
+          status,
+          detail: this.getDefaultMessage(status),
           response,
           timestamp: new Date().toISOString(),
           path: request.url,
@@ -27,7 +27,7 @@ export class TransformInterceptors<T> implements NestInterceptor<BaseApiResponse
     );
   }
 
-  private getDefaultMessage(statusCode: number): string {
+  private getDefaultMessage(status: number): string {
     const defaultMessages: Record<number, string> = {
       200: 'Request Successful',
       201: 'Resource Created',
@@ -39,6 +39,6 @@ export class TransformInterceptors<T> implements NestInterceptor<BaseApiResponse
       409: 'Conflict',
       500: 'Internal Server Error',
     };
-    return defaultMessages[statusCode] || 'Unknown';
+    return defaultMessages[status] || 'Unknown';
   }
 }

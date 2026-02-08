@@ -1,9 +1,15 @@
+import {
+  ApiBody,
+  ApiParam,
+  ApiOkResponse,
+  ApiCreatedResponse,
+  ApiConflictResponse,
+  ApiBadRequestResponse,
+} from "@nestjs/swagger";
 import * as UserDTO from "./dto";
 import {UsersService} from "./users.service";
-import {ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiOkResponse, ApiParam} from "@nestjs/swagger";
-import {BadRequestUUIDParams, UUID4Dto, UUID4Schema, type UUID4Type, ZodPipe} from "../../common";
 import {Body, Controller, Get, HttpCode, Param, Post} from '@nestjs/common';
-import {GetUserOkResponse} from "./dto";
+import {BadRequestUUIDParams, UUID4Dto, UUID4Schema, type UUID4Type, ZodPipe} from "../../common";
 
 @Controller('users')
 export class UsersController {
@@ -15,6 +21,9 @@ export class UsersController {
   @ApiCreatedResponse({
     type: UserDTO.CreateUserOkResponse
   })
+  @ApiConflictResponse({
+    type: UserDTO.CreateUserConflictResponse
+  })
   create(
     @Body(new ZodPipe(UserDTO.CreateUser)) data: UserDTO.CreateUserInput
   ) {
@@ -23,7 +32,7 @@ export class UsersController {
 
   @Get(":id")
   @ApiParam(UUID4Dto)
-  @ApiOkResponse({type: GetUserOkResponse})
+  @ApiOkResponse({type: UserDTO.GetUserOkResponse})
   @ApiBadRequestResponse({type: BadRequestUUIDParams})
   findOne(
     @Param(new ZodPipe(UUID4Schema)) params: UUID4Type,

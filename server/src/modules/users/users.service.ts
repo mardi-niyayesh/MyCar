@@ -1,8 +1,9 @@
 import * as UserDTO from "./dto";
 import {BaseApiResponseType} from "../../lib";
+import {User} from "../prisma/generated/client";
 import {UserRole} from "../prisma/generated/enums";
 import {PrismaService} from "../prisma/prisma.service";
-import {Injectable, NotFoundException} from '@nestjs/common';
+import {ConflictException, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class UsersService {
@@ -12,6 +13,17 @@ export class UsersService {
   async create(createData: UserDTO.CreateUserInput): Promise<BaseApiResponseType<{
     user: UserDTO.CreateUserResponse
   }>> {
+    const user: User | null = await this.prisma.user.findFirst({
+      where: {
+        email: createData.email,
+      }
+    });
+
+    if (user) throw new ConflictException({
+      message: 'User already exists',
+      status: 409,
+    });
+
     const newUser = await this.prisma.user.create({
       data: {
         ...createData,

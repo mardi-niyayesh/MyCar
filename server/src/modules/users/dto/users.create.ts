@@ -4,6 +4,7 @@ import {createZodDto} from "nestjs-zod";
 import {BaseUserSchema} from "./users.validators";
 import {User} from "../../prisma/generated/client";
 import {getBaseOkResponseSchema} from "../../../common";
+import {ApiProperty} from "@nestjs/swagger";
 
 export const CreateUser = BaseUserSchema.overwrite(data => ({
   ...data,
@@ -48,3 +49,11 @@ export class CreateUserOkResponse extends getBaseOkResponseSchema<{
     user: CreateUserResponse
   }
 }) {}
+
+export class CreateUserConflictResponse {
+  @ApiProperty({example: "User already exists"})
+  message: string;
+
+  @ApiProperty({example: 409})
+  status: number;
+}
